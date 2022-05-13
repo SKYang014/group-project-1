@@ -1,7 +1,7 @@
 //pull elements from html
-var nameEl = document.querySelector("#name");
-var divEl = document.querySelector("#info");
-var contentEl = document.querySelector("#content-info");
+var nameEl = document.querySelector(".name");
+var photoEl = document.querySelector(".photo");
+var contentEl = document.querySelector(".content-info");
 var dogApi = "https://dog.ceo/api/breeds/image/random";
 var infoApi = "https://randomuser.me/api/";
 
@@ -20,8 +20,8 @@ fetch(infoApi)
     var nameTitle = data.results[0].name.title;
     console.log(nameTitle);
     var nameTitleEl = document.createElement("h2");
-    nameTitleEl.innerHTML = nameTitle;
-    //nameTitleEl.appendChild(nameTitle);
+    nameTitleEl.innerHTML = "<h2>hello</h2>";
+    nameTitleEl.appendChild(nameTitle);
     
     // console.log(data.results[0].name.first);
     // var nameFirst = data.results[0].name.first;
@@ -44,15 +44,19 @@ fetch(infoApi)
 
 
 // insert dog photo function
-// fetch(dogApi)
-// .then(function(response) {
-//     return response.json();
-// })
-// .then (function(data) {
-//     console.log(data);
-//     var photoUrl = []
-//     var photoEl = document.createElement("img.src = " + data.message + ";");
-    
+fetch(dogApi)
+    .then(function(response) {
+        return response.json();
+    })
+    .then (function(data) {
+        console.log(data.message);
+        var img = document.createElement("img");
+        img.src = data.message;
+        photoEl.appendChild(img); 
+        //$(photoEl).append(img);
+    })
+
+
 // });
 
 
