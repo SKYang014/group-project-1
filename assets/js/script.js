@@ -1,5 +1,5 @@
 //pull elements from html
-var nameEl = document.querySelector(".name");
+//var nameEl = document.querySelector(".name");
 var photoEl = document.querySelector(".photo");
 var contentEl = document.querySelector(".content-info");
 var dogApi = "https://dog.ceo/api/breeds/image/random";
@@ -18,26 +18,26 @@ fetch(infoApi)
 .then (function(data) {
     
     var nameTitle = data.results[0].name.title;
-    console.log(nameTitle);
-    var nameTitleEl = document.createElement("h2");
-    nameTitleEl.innerHTML = "<h2>hello</h2>";
-    nameTitleEl.appendChild(nameTitle);
+    // var nameTitleEl = document.createElement("h2");
+    // nameTitleEl.innerHTML = nameTitle;
+    // nameEl.appendChild(nameTitleEl);
     
-    // console.log(data.results[0].name.first);
-    // var nameFirst = data.results[0].name.first;
-    // var nameFirstEl = document.createElement("li");
-    // nameFirstEl.appendChild(nameFirst);
+    var nameFirst = data.results[0].name.first;
+    // var nameFirstEl = document.createElement("h2");
+    // nameFirstEl.innerHTML = nameFirst;
+    // nameEl.appendChild(nameFirstEl);
 
-    // console.log(data.results[0].name.last);
-    // var nameLast = data.results[0].name.last;
-    // var nameLastEl = document.createElement("li");
-    // nameLastEl.appendChild(nameLast);
+    var nameLast = data.results[0].name.last;
+    // var nameLastEl = document.createElement("h2");
+    // nameLastEl.innerHTML = nameLast;
+    // nameEl.appendChild(nameLastEl);
 
     console.log(data.results[0].location.state);
     console.log(data.results[0].location.country);
     console.log("@"+data.results[0].login.username);
     console.log(data.results[0].dob.age+" Dog Years Old");
-    nameEl.appendChild(nameTitleEl);
+    //nameEl.appendChild(nameTitleEl + " " + nameFirstEl + " " + nameLastEl);
+    document.getElementById("name").innerHTML("hello")
 });
 
 //
