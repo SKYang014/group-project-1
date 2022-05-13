@@ -15,6 +15,9 @@ fetch(infoApi)
     return response.json();
 })
 .then (function(data) {
+    console.log(data.results[0].name.title);
+    console.log(data.results[0].name.first);
+    console.log(data.results[0].name.last);
     console.log(data.results[0].location.state);
     console.log(data.results[0].location.country);
     console.log("@"+data.results[0].login.username);
