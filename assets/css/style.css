@@ -1,0 +1,48 @@
+#title {
+    text-align: center;
+}
+
+.big-heading {
+    text-align: center;
+    background-color: brown;
+}
+
+.photo {
+    background-color: tan;
+}
+
+.colored-section {
+    background-color: tan;
+}
+
+.content-list {
+    background-color: rgb(177, 110, 79);
+}
+
+.info {
+    background-color: rgb(177, 110, 79);
+}
+
+.name {
+    text-align: center;
+    background-color: tan;
+}
+
+li {
+    list-style-type: none;
+}
+
+h3 {
+    background-color: brown;
+}
+
+.title-img {
+    height: 25px;
+    width: 45px;
+    padding: 1px 3px;
+}
+
+footer {
+    text-align: center;
+}
+
