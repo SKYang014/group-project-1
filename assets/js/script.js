@@ -21,6 +21,10 @@ fetch(infoApi)
         $(".name").append(nameTitle + " " + nameFirst + " " + nameLast);
     }
 
+    var infoFull = function () {
+        $(".content-list").append(infoLocationEl, infoUsernameEl, infoAgeEl)
+    }
+
     var nameTitle = data.results[0].name.title;
     // var nameTitleEl = document.createElement("h2");
     // nameTitleEl.innerHTML = nameTitle;
@@ -35,13 +39,30 @@ fetch(infoApi)
     // var nameLastEl = document.createElement("h2");
     // nameLastEl.innerHTML = nameLast;
     // nameEl.appendChild(nameLastEl);
+    var infoCountry = data.results[0].location.country;
+    //console.log(data.results[0].location.state);
+    var infoState = data.results[0].location.state;
+    var infoLocationEl = document.createElement("li");
+    infoLocationEl.innerHTML = infoState + ", " + infoCountry;
 
-    console.log(data.results[0].location.state);
-    console.log(data.results[0].location.country);
-    console.log("@"+data.results[0].login.username);
-    console.log(data.results[0].dob.age+" Dog Years Old");
+    //console.log(data.results[0].location.country);
+
+    // var infoCountryEl = document.createElement("li");
+    // infoCountryEl.innerHTML = infoCountry;
+
+    //console.log("@"+data.results[0].login.username);
+    var infoUsername = "@"+data.results[0].login.username;
+    var infoUsernameEl = document.createElement("li");
+    infoUsernameEl.innerHTML = infoUsername;
+
+    //console.log(data.results[0].dob.age+" Dog Years Old");
+    var infoAge = data.results[0].dob.age+" Dog Years Old";
+    var infoAgeEl = document.createElement("li");
+    infoAgeEl.innerHTML = infoAge;
+
     //nameEl.appendChild(nameTitleEl + " " + nameFirstEl + " " + nameLastEl);
     nameFull();
+    infoFull();
 })
 .catch(function(err) {
     console.log(err)
