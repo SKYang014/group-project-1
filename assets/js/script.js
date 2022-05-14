@@ -10,7 +10,6 @@ var infoApi = "https://randomuser.me/api/";
 
 //selector for breedlist
 
-// pull from data from API
 fetch(infoApi)
 .then(function(response) {
     return response.json();
@@ -26,41 +25,24 @@ fetch(infoApi)
     }
 
     var nameTitle = data.results[0].name.title;
-    // var nameTitleEl = document.createElement("h2");
-    // nameTitleEl.innerHTML = nameTitle;
-    // nameEl.appendChild(nameTitleEl);
     
     var nameFirst = data.results[0].name.first;
-    // var nameFirstEl = document.createElement("h2");
-    // nameFirstEl.innerHTML = nameFirst;
-    // nameEl.appendChild(nameFirstEl);
 
     var nameLast = data.results[0].name.last;
-    // var nameLastEl = document.createElement("h2");
-    // nameLastEl.innerHTML = nameLast;
-    // nameEl.appendChild(nameLastEl);
-    var infoCountry = data.results[0].location.country;
-    //console.log(data.results[0].location.state);
+
+    var infoCountry = data.results[0].location.country;;
     var infoState = data.results[0].location.state;
     var infoLocationEl = document.createElement("li");
     infoLocationEl.innerHTML = infoState + ", " + infoCountry;
 
-    //console.log(data.results[0].location.country);
-
-    // var infoCountryEl = document.createElement("li");
-    // infoCountryEl.innerHTML = infoCountry;
-
-    //console.log("@"+data.results[0].login.username);
     var infoUsername = "@"+data.results[0].login.username;
     var infoUsernameEl = document.createElement("li");
     infoUsernameEl.innerHTML = infoUsername;
 
-    //console.log(data.results[0].dob.age+" Dog Years Old");
     var infoAge = data.results[0].dob.age+" Dog Years Old";
     var infoAgeEl = document.createElement("li");
     infoAgeEl.innerHTML = infoAge;
 
-    //nameEl.appendChild(nameTitleEl + " " + nameFirstEl + " " + nameLastEl);
     nameFull();
     infoFull();
 })
