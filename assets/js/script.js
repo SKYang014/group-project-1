@@ -1,5 +1,5 @@
 //pull elements from html
-//var nameEl = document.querySelector(".name");
+var nameEl = document.querySelector(".name");
 var photoEl = document.querySelector(".photo");
 var contentEl = document.querySelector(".content-info");
 var dogApi = "https://dog.ceo/api/breeds/image/random";
@@ -16,7 +16,11 @@ fetch(infoApi)
     return response.json();
 })
 .then (function(data) {
-    
+    var nameFull = function () {
+        //nameEl.appendChild(nameTitle);
+        $(".name").append(nameTitle + " " + nameFirst + " " + nameLast);
+    }
+
     var nameTitle = data.results[0].name.title;
     // var nameTitleEl = document.createElement("h2");
     // nameTitleEl.innerHTML = nameTitle;
@@ -37,8 +41,12 @@ fetch(infoApi)
     console.log("@"+data.results[0].login.username);
     console.log(data.results[0].dob.age+" Dog Years Old");
     //nameEl.appendChild(nameTitleEl + " " + nameFirstEl + " " + nameLastEl);
-    document.getElementById("name").innerHTML("hello")
-});
+    nameFull();
+})
+.catch(function(err) {
+    console.log(err)
+})
+
 
 //
 
