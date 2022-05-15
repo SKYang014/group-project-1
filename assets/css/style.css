@@ -42,7 +42,37 @@ h3 {
     padding: 1px 3px;
 }
 
+button {
+    padding: 6px;
+    background-color: gray;
+    color: black;
+    border-radius: 2px solid black;
+}
+
+#counter {
+    display: flex;
+    text-align: center;
+}
+
+#count {
+    padding: 5px;
+}
+
+.love {
+    padding: 5px;
+    color: red;
+}
+
+#lovebtn {
+    color: red;
+}
+
+.like {
+    padding: 5px;
+}
+
 footer {
     text-align: center;
 }
+
 

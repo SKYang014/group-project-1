@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Pup Or Pass</title>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.7.4/js/foundation.min.js"></script> -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/style.css" />
     </head>
@@ -32,18 +31,8 @@
                                 </div>
 
                                 <div class="btn-section">
-                                    <button
-                                        type="button"
-                                        class="btn btn-dark btn-lg download-button"
-                                    >
-                                        <i class="fab fa-apple"></i> LOVE
-                                    </button>
-                                    <button
-                                        type="button"
-                                        class="btn btn-outline-light btn-lg download-button"
-                                    >
-                                        <i class="fab fa-google-play"></i> LIKE
-                                    </button>
+                                   <a class="button primary" id="lovebtn">&#10084;</a>
+                                   <a class="button primary" id="likebtn">&#x1F44D;</a>
                                 </div>
 
                                 <div class="col-lg-6">
@@ -60,6 +49,10 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="counter">
+                            <div class="love">&#10084; </div><div class="loveCounter" id="count"></div>
+                            <div class="like">&#128077; </div><div class="likeCounter" id="count"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,6 +68,7 @@
             <p>© Copyright 2022 @PuporPass</p>
         </footer>
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
         <script src="./assets/js/script.js"></script>
     </body>
 </html>
