@@ -4,9 +4,25 @@ var photoEl = document.querySelector(".photo");
 var contentEl = document.querySelector(".content-info");
 var dogApi = "https://dog.ceo/api/breeds/image/random";
 var infoApi = "https://randomuser.me/api/";
+var likeCount = 0;
+var loveCount = 0;
 
 //
+var likebtn = document.querySelector("#likebtn");
+var likeCounter = document.querySelector(".likeCounter");
+var lovebtn = document.querySelector("#lovebtn");
+var loveCounter = document.querySelector(".loveCounter");
 
+function interaction() {
+    likebtn.addEventListener("click", function(){
+        likeCount++;
+        likeCounter.innerHTML=likeCount;
+    })
+    lovebtn.addEventListener("click", function(){
+        loveCount++;
+        loveCounter.innerHTML=loveCount;
+    })
+}
 
 //selector for breedlist
 
@@ -70,7 +86,7 @@ fetch(dogApi)
 
 // });
 
-
+interaction();
 
 //like love counter
 
