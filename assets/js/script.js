@@ -14,74 +14,85 @@ var lovebtn = document.querySelector("#lovebtn");
 var loveCounter = document.querySelector(".loveCounter");
 
 function interaction() {
-    likebtn.addEventListener("click", function(){
+    likebtn.addEventListener("click", function () {
         likeCount++;
-        likeCounter.innerHTML=likeCount;
+        likeCounter.innerHTML = likeCount;
     })
-    lovebtn.addEventListener("click", function(){
+    lovebtn.addEventListener("click", function () {
         loveCount++;
-        loveCounter.innerHTML=loveCount;
+        loveCounter.innerHTML = loveCount;
     })
+    // nameEl.innerHTML = "";
+    // photoEl.innerHTML = "";
+    // contentEl.innerHTML = "";
+    //$(".name").empty();
+    infoupdate();
+    dogphoto();
 }
 
 //selector for breedlist
+function infoupdate() {
+    fetch(infoApi)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var nameFull = function () {
+                //nameEl.appendChild(nameTitle);
+                $(".name").append(nameTitle + " " + nameFirst + " " + nameLast);
+            }
 
-fetch(infoApi)
-.then(function(response) {
-    return response.json();
-})
-.then (function(data) {
-    var nameFull = function () {
-        //nameEl.appendChild(nameTitle);
-        $(".name").append(nameTitle + " " + nameFirst + " " + nameLast);
-    }
+            var infoFull = function () {
+                $(".content-list").append(infoLocationEl, infoUsernameEl, infoAgeEl)
+            }
 
-    var infoFull = function () {
-        $(".content-list").append(infoLocationEl, infoUsernameEl, infoAgeEl)
-    }
+            var nameTitle = data.results[0].name.title;
 
-    var nameTitle = data.results[0].name.title;
-    
-    var nameFirst = data.results[0].name.first;
+            var nameFirst = data.results[0].name.first;
 
-    var nameLast = data.results[0].name.last;
+            var nameLast = data.results[0].name.last;
 
-    var infoCountry = data.results[0].location.country;;
-    var infoState = data.results[0].location.state;
-    var infoLocationEl = document.createElement("li");
-    infoLocationEl.innerHTML = infoState + ", " + infoCountry;
+            var infoCountry = data.results[0].location.country;;
+            var infoState = data.results[0].location.state;
+            var infoLocationEl = document.createElement("li");
+            infoLocationEl.innerHTML = infoState + ", " + infoCountry;
 
-    var infoUsername = "@"+data.results[0].login.username;
-    var infoUsernameEl = document.createElement("li");
-    infoUsernameEl.innerHTML = infoUsername;
+            var infoUsername = "@" + data.results[0].login.username;
+            var infoUsernameEl = document.createElement("li");
+            infoUsernameEl.innerHTML = infoUsername;
 
-    var infoAge = data.results[0].dob.age+" Dog Years Old";
-    var infoAgeEl = document.createElement("li");
-    infoAgeEl.innerHTML = infoAge;
+            var infoAge = data.results[0].dob.age + " Dog Years Old";
+            var infoAgeEl = document.createElement("li");
+            infoAgeEl.innerHTML = infoAge;
 
-    nameFull();
-    infoFull();
-})
-.catch(function(err) {
-    console.log(err)
-})
-
+            nameFull();
+            infoFull();
+        })
+        .catch(function (err) {
+            console.log(err)
+        })
+}
 
 //
 
 
 // insert dog photo function
-fetch(dogApi)
-    .then(function(response) {
-        return response.json();
-    })
-    .then (function(data) {
-        console.log(data.message);
-        var img = document.createElement("img");
-        img.src = data.message;
-        photoEl.appendChild(img); 
-        //$(photoEl).append(img);
-    })
+function dogphoto() {
+    fetch(dogApi)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data.message);
+            var img = document.createElement("img");
+            img.src = data.message;
+            photoEl.appendChild(img);
+            //$(photoEl).append(img);
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+}
 
 
 // });
