@@ -1,7 +1,7 @@
 //pull elements from html
 var nameEl = document.querySelector(".name");
 var photoEl = document.querySelector(".photo");
-var contentEl = document.querySelector(".content-info");
+var contentEl = document.querySelector(".info-content");
 var dogApi = "https://dog.ceo/api/breeds/image/random";
 var infoApi = "https://randomuser.me/api/";
 var likeCount = 0;
@@ -14,18 +14,16 @@ var lovebtn = document.querySelector("#lovebtn");
 var loveCounter = document.querySelector(".loveCounter");
 
 function interaction() {
-    likebtn.addEventListener("click", function () {
-        likeCount++;
-        likeCounter.innerHTML = likeCount;
-    })
-    lovebtn.addEventListener("click", function () {
-        loveCount++;
-        loveCounter.innerHTML = loveCount;
-    })
+    // lovebtn.addEventListener("click", function () {
+    //     loveCount++;
+    //     loveCounter.innerHTML = loveCount;
+    // })
     // nameEl.innerHTML = "";
     // photoEl.innerHTML = "";
     // contentEl.innerHTML = "";
-    //$(".name").empty();
+    $(".name").empty();
+    $(".photo").empty();
+    $(".content-list").empty();
     infoupdate();
     dogphoto();
 }
@@ -97,7 +95,25 @@ function dogphoto() {
 
 // });
 
-interaction();
+$("#likebtn").on("click", function() {
+    interaction();
+    likeCount++;
+    likeCounter.innerHTML = likeCount;
+});
+
+
+$("#lovebtn").on("click", function() {
+    interaction();
+    loveCount++;
+    loveCounter.innerHTML = loveCount;
+});
+
+infoupdate()
+dogphoto()
+// {
+    // likeCount++;
+    // likeCounter.innerHTML = likeCount;
+//});
 
 //like love counter
 
