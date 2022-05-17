@@ -14,13 +14,6 @@ var lovebtn = document.querySelector("#lovebtn");
 var loveCounter = document.querySelector(".loveCounter");
 
 function interaction() {
-    // lovebtn.addEventListener("click", function () {
-    //     loveCount++;
-    //     loveCounter.innerHTML = loveCount;
-    // })
-    // nameEl.innerHTML = "";
-    // photoEl.innerHTML = "";
-    // contentEl.innerHTML = "";
     $(".name").empty();
     $(".photo").empty();
     $(".content-list").empty();
@@ -93,28 +86,51 @@ function dogphoto() {
 }
 
 
+var savePoints = function() {
+    console.log(likeCount)
+    localStorage.setItem("likes", JSON.stringify(likeCount))
+    localStorage.setItem("loves", JSON.stringify(loveCount))
+}
 // });
 
 $("#likebtn").on("click", function() {
+    parseInt(likeCount)
     interaction();
     likeCount++;
+    console.log(likeCount)
     likeCounter.innerHTML = likeCount;
+    console.log(likeCount)
+    savePoints();
 });
 
 
 $("#lovebtn").on("click", function() {
+    parseInt(loveCount)
     interaction();
     loveCount++;
     loveCounter.innerHTML = loveCount;
+    savePoints();
 });
+
 
 infoupdate()
 dogphoto()
-// {
-    // likeCount++;
-    // likeCounter.innerHTML = likeCount;
-//});
 
-//like love counter
+var loadPoints = function () {
+    likeCount = localStorage.getItem("likes")
+    loveCount = localStorage.getItem("loves")
 
-// button event listener for likes and loves
+
+    if (likeCount === 0) {
+        likeCount = 0
+    }
+    if (loveCount === 0) {
+        loveCount = 0
+    }
+    else {
+        likeCounter.innerHTML = likeCount;
+        loveCounter.innerHTML = loveCount;
+    }
+}
+
+loadPoints();
