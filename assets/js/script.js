@@ -29,7 +29,7 @@ function infoupdate() {
         })
         .then(function (data) {
             var nameFull = function () {
-                //nameEl.appendChild(nameTitle);
+                
                 $(".name").append(nameTitle + " " + nameFirst + " " + nameLast);
             }
 
@@ -78,7 +78,7 @@ function dogphoto() {
             var img = document.createElement("img");
             img.src = data.message;
             photoEl.appendChild(img);
-            //$(photoEl).append(img);
+            
         })
         .catch(function(err){
             console.log(err)
@@ -88,10 +88,20 @@ function dogphoto() {
 
 var savePoints = function() {
     console.log(likeCount)
+    if (likeCount === null || 0) {
+        likeCount = 0;
+    }
+    if (loveCount === null || 0) {
+        loveCount = 0;
+    }
+    else {
+        likeCounter.innerHTML = likeCount;
+        loveCounter.innerHTML = loveCount;
+    }
     localStorage.setItem("likes", JSON.stringify(likeCount))
     localStorage.setItem("loves", JSON.stringify(loveCount))
 }
-// });
+
 
 $("#likebtn").on("click", function() {
     parseInt(likeCount)
@@ -99,6 +109,7 @@ $("#likebtn").on("click", function() {
     likeCount++;
     console.log(likeCount)
     likeCounter.innerHTML = likeCount;
+    parseInt(likeCount)
     console.log(likeCount)
     savePoints();
 });
@@ -109,6 +120,7 @@ $("#lovebtn").on("click", function() {
     interaction();
     loveCount++;
     loveCounter.innerHTML = loveCount;
+    parseInt(loveCount)
     savePoints();
 });
 
@@ -121,11 +133,11 @@ var loadPoints = function () {
     loveCount = localStorage.getItem("loves")
 
 
-    if (likeCount === 0) {
-        likeCount = 0
+    if (likeCount === null) {
+        likeCount = 0;
     }
-    if (loveCount === 0) {
-        loveCount = 0
+    if (loveCount === null) {
+        loveCount = 0;
     }
     else {
         likeCounter.innerHTML = likeCount;
