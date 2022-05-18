@@ -1,39 +1,55 @@
+:root {
+    --primary-color: #7c3f58;
+    --secondary-color: #fff6d3;
+    --tertiary-color: #f9a875;
+    --quartenary-color: #eb6b6f;
+}
+
 #title {
     text-align: center;
 }
 
 .big-heading {
     text-align: center;
-    background-color: brown;
+    background-color: var(--quartenary-color);
+    font-size:  500%;
 }
 
 .photo {
-    background-color: tan;
+    background-color: var(--primary-color);
 }
 
 .colored-section {
-    background-color: tan;
+    background-color: var(--primary-color);
 }
 
 .content-list {
-    background-color: rgb(177, 110, 79);
+    background-color: var(--primary-color);
 }
 
+
 .info {
-    background-color: rgb(177, 110, 79);
+    background-color: var(--primary-color);
+}
+
+.info-content {
+    background-color: var(--secondary-color);
+    font-size: 200%;
 }
 
 .name {
     text-align: center;
-    background-color: tan;
+    background-color: var(--secondary-color);
+    font-size: 200%;
 }
 
 li {
     list-style-type: none;
+    background-color: var(--secondary-color);
 }
 
 h3 {
-    background-color: brown;
+    background-color: var(--primary-color)n;
 }
 
 .title-img {
@@ -44,9 +60,9 @@ h3 {
 
 button {
     padding: 6px;
-    background-color: gray;
+    background-color: var(--tertiary-color);
     color: black;
-    border-radius: 2px solid black;
+    border-radius: 2px solid var(--quartenary-color);
 }
 
 #counter {
@@ -64,7 +80,7 @@ button {
 }
 
 #lovebtn {
-    color: red;
+    color: var(--quartenary-color);
 }
 
 .like {
