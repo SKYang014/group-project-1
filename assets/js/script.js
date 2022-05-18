@@ -109,7 +109,7 @@ $("#likebtn").on("click", function() {
     likeCount++;
     console.log(likeCount)
     likeCounter.innerHTML = likeCount;
-    parseInt(likeCount)
+    
     console.log(likeCount)
     savePoints();
 });
@@ -120,7 +120,7 @@ $("#lovebtn").on("click", function() {
     interaction();
     loveCount++;
     loveCounter.innerHTML = loveCount;
-    parseInt(loveCount)
+    
     savePoints();
 });
 
@@ -131,7 +131,8 @@ dogphoto()
 var loadPoints = function () {
     likeCount = localStorage.getItem("likes")
     loveCount = localStorage.getItem("loves")
-
+    parseInt(loveCount)
+    parseInt(likeCount)
 
     if (likeCount === null) {
         likeCount = 0;
@@ -142,6 +143,7 @@ var loadPoints = function () {
     else {
         likeCounter.innerHTML = likeCount;
         loveCounter.innerHTML = loveCount;
+
     }
 }
 
